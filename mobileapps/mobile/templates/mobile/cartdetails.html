@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{%extends 'mobile/base.html'%}
+
+{%block body_block%}
+<h2>
+    <center>
+        Ordered Items
+    </center>
+</h2>
+<div class="row">
+    <div class="col-12">
+
+
+        <table class="table table-striped">
+
+            <tr>
+                <td>Product</td>
+                <td>Address</td>
+                <td>Status</td>
+                <td>Price</td>
+                <td>Image</td>
+                <td>Cancel</td>
+
+            </tr>
+
+            {% for order in orders %}
+
+            <tr>
+                <td><b>{{order.product}}</b></td>
+                <td><b>{{order.address}}</b></td>
+                <td><b>{{order.status}}</b></td>
+                <td><b>{{order.product.price}}</b></td>
+                <td><img src="{{order.product.img.url}}" alt="" height="80px"></td>
+                <td><a href="{%url 'delt' order.id %}" class="btn btn-primary">Cancel</a></td>
+
+
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
